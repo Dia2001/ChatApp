@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:id="@+id/layout_message"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/profile_image">
+
+        <TextView
+            android:id="@+id/show_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_message_left"
+            android:maxWidth="300dp"
+            android:padding="12dp"
+            android:text="@string/hello_blank_fragment"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/show_message_image"
+            android:layout_width="wrap_content"
+            android:layout_height="177dp"
+            android:padding="12dp"
+            android:background="@drawable/background_message_left"
+            android:src="@drawable/gallery"
+            android:visibility="gone"
+            android:contentDescription="@string/todo" />
+
+        <VideoView
+            android:id="@+id/show_message_video"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:padding="12dp"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/show_message_audio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_message_left"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="300dp"
+                android:padding="12dp"
+                android:text="@string/recorder_sound"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <ImageButton
+                android:id="@+id/btn_play_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/background_message_left"
+                android:src="@drawable/ic_baseline_play_black"
+                android:contentDescription="@string/todo" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_seen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_message"
+        android:layout_marginEnd="5dp"
+        android:layout_toStartOf="@id/txt_time_seen"
+        android:text="@string/seen"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/txt_time_seen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_message"
+        android:layout_alignParentEnd="true"
+        android:text="@string/at_21_06_36_2021_05_27"
+        android:visibility="gone" />
+</RelativeLayout>

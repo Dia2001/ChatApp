@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "739118023389",
+    "firebase_url": "https://chatappanroid-default-rtdb.firebaseio.com",
+    "project_id": "chatappanroid",
+    "storage_bucket": "chatappanroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739118023389:android:692b71469223e752d7d134",
+        "android_client_info": {
+          "package_name": "com.example.chatappanroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739118023389-5d087gqhbu2t71vmf9nt2v61f16424bf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-NcPt6WfFI5t1F9hDMcdxjZ2FxZPA8MY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "739118023389-5d087gqhbu2t71vmf9nt2v61f16424bf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
