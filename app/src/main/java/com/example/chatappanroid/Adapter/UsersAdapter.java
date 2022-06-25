@@ -80,13 +80,11 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
             holder.img_off.setVisibility(View.GONE);
             holder.time_last_message.setVisibility(View.GONE);
         }
-
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(mContext, MessageActivity.class);
             intent.putExtra("chatID", user.getId());
             mContext.startActivity(intent);
         });
-
        holder.itemView.setOnLongClickListener(v -> {
            //Hộp thoại nổi
             BottomSheetUser bottomSheetUser = new BottomSheetUser(user.getId());
@@ -151,32 +149,11 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
                     } else {
                         if (userWithLastMessageID.equals(fUser.getUid()) && type != null) {
                             switch (type) {
-                                case "image":
-                                    lastMessage = "You: Sent an image";
-                                    break;
-                                case "audio":
-                                    lastMessage = "You: Sent a voice record";
-                                    break;
-                                case "video":
-                                    lastMessage = "You: Sent a voice video";
-                                    break;
-                                default:
+                                case "text":
                                     lastMessage = "You: " + lastMessage;
-
                                     break;
                             }
                         } else if (type != null) {
-                            switch (type) {
-                                case "image":
-                                    lastMessage = "Sent an image";
-                                    break;
-                                case "audio":
-                                    lastMessage = "Sent a voice record";
-                                    break;
-                                case "video":
-                                    lastMessage = "Sent a voice video";
-                                    break;
-                            }
                             if (!isSeen) {
                                 username.setTextColor(ContextCompat.getColor(mContext, R.color.colorPrimaryDark));
                                 last_message.setTypeface(Typeface.DEFAULT_BOLD);

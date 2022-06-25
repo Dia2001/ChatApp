@@ -63,12 +63,6 @@ public class UsersFragment extends Fragment {
     }
     private void searchUser(String s) {
         FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
-//Một truy vấn sắp xếp và lọc dữ liệu tại vị trí cơ sở dữ liệu để chỉ bao
-// gồm một tập hợp con của dữ liệu con. Điều này có thể được sử dụng để
-// đặt một bộ sưu tập dữ liệu theo một số thuộc tính (ví dụ: chiều cao của khủng long)
-// cũng như để hạn chế một danh sách lớn các mục (ví dụ: tin nhắn trò chuyện) xuống một số
-// phù hợp để đồng bộ hóa với máy khách.
-// Các truy vấn được tạo bằng cách chuỗi lại với nhau một hoặc nhiều phương thức lọc được xác định ở đây.
         Query search = FirebaseDatabase.getInstance().getReference("Users").orderByChild("username");
         search.addValueEventListener(new ValueEventListener() {
             @Override

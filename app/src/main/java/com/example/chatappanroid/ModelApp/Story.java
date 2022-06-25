@@ -1,7 +1,6 @@
 package com.example.chatappanroid.ModelApp;
 
 public class Story {
-    //private String id;
     private String username;
     private String content;
     private String time;

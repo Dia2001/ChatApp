@@ -29,13 +29,13 @@ public class StoryFragment extends Fragment{
 
         adapter = new StoryAdapter(options);
         viewPager2.setAdapter(adapter);
-
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        //Bây giờ Onstart () là một vòng đời hoạt động và ở đây bạn đang bắt đầu lắng nghe các giá trị.
         adapter.startListening();
     }
 

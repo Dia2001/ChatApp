@@ -3,6 +3,7 @@ package com.example.chatappanroid.fragment;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -108,7 +109,7 @@ public class ChatsFragment extends Fragment{
     }
     private void search(String s) {
         FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
-
+        Log.d("b",fUser+"");
         Query query = FirebaseDatabase.getInstance().getReference("Users").orderByChild("username");
 
         query.addValueEventListener(new ValueEventListener() {
@@ -117,10 +118,11 @@ public class ChatsFragment extends Fragment{
                 if (userList != null) {
                     userList.clear();
                 }
+                Log.d("a",snapshot+"");
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     User user = dataSnapshot.getValue(User.class);
-
                     if (user != null && user.getId() != null) {
+
                         assert fUser != null;
                         for (ChatsList chatsList : sortedUserList) {
                             if (user.getUsername().contains(s)) {
@@ -130,8 +132,6 @@ public class ChatsFragment extends Fragment{
                             }
                         }
                     }
-
-
                 }
                 usersAdapter = new UsersAdapter(getContext(), userList, true);
                 recyclerView.setAdapter(usersAdapter);
@@ -154,8 +154,6 @@ public class ChatsFragment extends Fragment{
                 for (ChatsList chatsList : sortedUserList) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         User user = dataSnapshot.getValue(User.class);
-                       // Khi chương trình thực thi Expression1  nó sẽ đánh giá Expression1
-                        // có đúng hay không. Nếu sai thì một lỗi AssertionError sẽ được ném ra.
                         assert user != null;
                         if (user.getId()!=null) {
                             if (user.getId().equals(chatsList.getId())) {
@@ -164,14 +162,11 @@ public class ChatsFragment extends Fragment{
                         }
                     }
                 }
-
                 usersAdapter = new UsersAdapter(getContext(), userList, true, getFragmentManager());
                 recyclerView.setAdapter(usersAdapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }

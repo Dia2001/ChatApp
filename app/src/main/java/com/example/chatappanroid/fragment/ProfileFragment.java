@@ -76,6 +76,7 @@ public class ProfileFragment extends Fragment {
     StorageTask<UploadTask.TaskSnapshot> uploadImageTask, uploadMediaTask;
 //
     FirebaseUser fUser;
+    //Phục vụ cho mở lấy hình ảnh
     private ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -183,6 +184,7 @@ public class ProfileFragment extends Fragment {
 
     private void openImage() {
         Intent intent = new Intent();
+        // Nhận ảnh từ thiết bị
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, Constants.IMAGE_REQUEST);
@@ -196,6 +198,7 @@ public class ProfileFragment extends Fragment {
 
         if (resultCode == Constants.RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
+            //uploadImageTask: Đóng gói trạng thái về việc tải lên
             if (uploadImageTask != null && uploadImageTask.isInProgress()) {
                 Toast.makeText(getContext(), "Upload in progress", Toast.LENGTH_SHORT).show();
             } else {
@@ -217,6 +220,7 @@ public class ProfileFragment extends Fragment {
                 if (!task.isSuccessful()) {
                     throw Objects.requireNonNull(task.getException());
                 }
+                // Tiếp tục với nhiệm vụ để có được URL tải xuống
                 return fileReference.getDownloadUrl();
             }).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
@@ -290,6 +294,7 @@ public class ProfileFragment extends Fragment {
                 return fileReference.getDownloadUrl();
             }).addOnCompleteListener((OnCompleteListener<Uri>) task -> {
                 if (task.isSuccessful()) {
+                    // Trả về đường dẫn ảnh
                     Uri downloadUri = task.getResult();
                     assert downloadUri != null;
                     String mUri = downloadUri.toString();

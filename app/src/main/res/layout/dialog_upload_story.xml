@@ -97,14 +97,14 @@
                     android:layout_height="100dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="30dp"
-                    android:background="@drawable/gallery" />
+                    android:background="@drawable/thuvien" />
 
                 <ImageButton
                     android:id="@+id/btn_upload"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/upload" />
+                    android:background="@drawable/tailen" />
             </LinearLayout>
 
 

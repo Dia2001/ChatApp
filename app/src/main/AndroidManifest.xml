@@ -30,6 +30,9 @@
             android:name=".activity_login"
             android:exported="false" />
         <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity_register"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar"/>

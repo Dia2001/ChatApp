@@ -113,16 +113,6 @@ public class MainActivity extends AppCompatActivity {
             if (selectedTab == 3) {setFragment(new ProfileFragment());}
             return true;
         });
-        //mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-        //            @Override
-        //            public void onComplete(@NonNull Task<AuthResult> task) {
-        //                if (task.isSuccessful()) {
-        //                    Toast.makeText(MainActivity.this, "Sign In", Toast.LENGTH_LONG).show();
-        //                } else {
-        //                    Toast.makeText(MainActivity.this, "Sign in failed", Toast.LENGTH_LONG).show();
-        //                }
-        //            }
-        //        });
         FirebaseMessaging.getInstance().setAutoInitEnabled(true);
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(task -> {
@@ -141,10 +131,8 @@ public class MainActivity extends AppCompatActivity {
                 });
         //show own username and profile picture
         FirebaseAuth.getInstance().addAuthStateListener(firebaseAuth -> {
-            // get cái đối tượng mà firse base trả về
             FirebaseUser fUser = firebaseAuth.getCurrentUser();
             if (fUser != null) {
-                // get cái đối tượng mà firse base trả về
                 reference = FirebaseDatabase.getInstance().getReference("Users").child(fUser.getUid());
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -184,7 +172,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 }
-
                 if (unRead != 0) {
                     AHNotification notification = new AHNotification.Builder()
                             .setText(String.valueOf(unRead))

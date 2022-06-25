@@ -46,6 +46,7 @@ public class activity_login extends AppCompatActivity {
         reset_password = findViewById(R.id.reset_password);
         reset_password.setOnClickListener(v -> {
             startActivity(new Intent(activity_login.this, ResetPasswordActivity.class));
+            finish();
         });
 
     }
